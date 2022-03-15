@@ -12,14 +12,14 @@ const users = () => {
 };
 
 const authWith = (username: string = "null", password: string = "null") => {
-  let bool: any = users().find((user: any) => {
+  let user: any = users().find((user: any) => {
     if (username == user.username && password == user.password) {
       return true;
     } else {
       return false;
     }
   });
-  return bool;
+  return user;
 };
 
 const auth = new Promise((resolve: Function, reject: Function) => {
@@ -30,11 +30,11 @@ const auth = new Promise((resolve: Function, reject: Function) => {
     value: "*pwb default*",
   });
   // try changing the username and password on line 24
-  let oAuth = authWith(username, password);
-  if (!oAuth) {
+  let a = authWith(username, password);
+  if (!a) {
     reject("\nIncorrect username or password\n");
   } else {
-    resolve(`\nLogged in as ${oAuth.username}\n`);
+    resolve(`\nLogged in as ${a.username}\n`);
   }
 });
 

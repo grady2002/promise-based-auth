@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^17.0.21",
+    "prompt-sync": "^4.2.0",
     "typescript": "^4.6.2"
   },
   "devDependencies": {

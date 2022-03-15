@@ -1,7 +1,9 @@
 console.clear();
 
+const ps = require("prompt-sync");
+
 const users = () => {
-  let u = [
+  let u: Array<Object> = [
     { username: "admin", password: "admin" },
     { username: "grady", password: "grady" },
     { username: "user", password: "user" },
@@ -9,23 +11,30 @@ const users = () => {
   return u;
 };
 
+const authWith = (username: string = "null", password: string = "null") => {
+  let bool: any = users().find((user: any) => {
+    if (username == user.username && password == user.password) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return bool;
+};
+
 const auth = new Promise((resolve: Function, reject: Function) => {
-  const authWith = (username: string = "null", password: string = "null") => {
-    let bool = users().find((user: any) => {
-      if (username == user.username && password == user.password) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    return bool;
-  };
+  let prompt: Function = ps();
+  let username: string = prompt("username ? ");
+  let password: string = prompt("password ? ", {
+    echo: "*",
+    value: "*pwb default*",
+  });
   // try changing the username and password on line 24
-  let oAuth = authWith("admin", "admin");
+  let oAuth = authWith(username, password);
   if (!oAuth) {
-    reject("Incorrect username or password");
+    reject("\nIncorrect username or password\n");
   } else {
-    resolve(`Logged in as ${oAuth.username}`);
+    resolve(`\nLogged in as ${oAuth.username}\n`);
   }
 });
 

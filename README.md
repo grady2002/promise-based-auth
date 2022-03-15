@@ -1,5 +1,11 @@
 # Promise based authentication demo
 
+### Installation
+
+```
+npm install
+```
+
 ### Compilation
 
 ```

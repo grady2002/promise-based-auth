@@ -20,6 +20,7 @@ const auth = new Promise((resolve: Function, reject: Function) => {
     });
     return bool;
   };
+  // try changing the username and password on line 24
   let oAuth = authWith("admin", "admin");
   if (!oAuth) {
     reject("Incorrect username or password");

@@ -29,7 +29,6 @@ const auth = new Promise((resolve: Function, reject: Function) => {
     echo: "*",
     value: "*pwb default*",
   });
-  // try changing the username and password on line 24
   let a = authWith(username, password);
   if (!a) {
     reject("\nIncorrect username or password\n");

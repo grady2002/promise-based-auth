@@ -14,4 +14,9 @@
 
     node auth.js
 
+### Or Run Without COmpilation
+
+    npm install --save ts-node
+    ts-node auth.ts
+
 **IGNORE COMPILATION WARNINGS**
